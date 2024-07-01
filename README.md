@@ -47,3 +47,7 @@ Now you can use the component in the main wrapper app
   import MyNewComponent from 'remote/MyNewComponent'
 </script>
 ```
+
+
+#### Current Status
+Early phase, just starting up the project.
