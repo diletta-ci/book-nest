@@ -46,7 +46,7 @@ module.exports = (_, argv) => ({
   plugins: [
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "host",
+      name: "book-nest-wrapper",
       filename: "remoteEntry.js",
       remotes: {
         remote: "upload_book@http://localhost:8081/remoteEntry.js?v=[Date.now()]"
