@@ -4,7 +4,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 const Dotenv = require('dotenv-webpack');
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: "http://localhost:8081/",
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8080,
+    port: 8081,
     historyApiFallback: true,
   },
 
@@ -46,12 +46,12 @@ module.exports = (_, argv) => ({
   plugins: [
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "host",
+      name: "upload_book",
       filename: "remoteEntry.js",
-      remotes: {
-        remote: "upload_book@http://localhost:8081/remoteEntry.js?v=[Date.now()]"
+      remotes: {},
+      exposes: {
+        "./UploadImages": "./src/components/UploadImages/UploadImages.vue"
       },
-      exposes: {},
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
